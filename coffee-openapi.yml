@@ -1,0 +1,243 @@
+openapi: 3.0.1
+info:
+  title: Coffee Roast
+  version: 1.0.0
+servers:
+- url: https://m03lg.wiremockapi.cloud
+paths:
+  /coffee/{thingId}:
+    get:
+      description: Get coffee by thingId.
+      operationId: getCoffeeByThingId
+      parameters:
+      - name: thingId
+        in: path
+        required: true
+        style: simple
+        explode: false
+      responses:
+        "200":
+          description: Coffee Roast
+          content:
+            application/json:
+              schema:
+                required:
+                - body
+                - brightness
+                - description
+                - id
+                - name
+                - note
+                - process
+                - roast
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int32
+                    example: 1001
+                  name:
+                    type: string
+                    example: Costa Rica Breakfast
+                  description:
+                    type: string
+                    example: "Bright and Fruit forward. Full of notes of chocolate,\
+                      \ stone fruits such as apricot, honey, orange citrus, molasses,\
+                      \ and more."
+                  roast:
+                    type: integer
+                    format: int32
+                    example: 3
+                  brightness:
+                    type: integer
+                    format: int32
+                    example: 8
+                  body:
+                    type: integer
+                    format: int32
+                    example: 4
+                  note:
+                    type: array
+                    example:
+                    - apricot
+                    - honey
+                    - chocolate
+                    items:
+                      type: string
+                      example: apricot
+                  process:
+                    type: string
+                    example: washed
+                x-wiremock-hash: 30402806
+              examples:
+                Coffee Roast:
+                  value: |-
+                    {
+                      "id": 1001,
+                      "name": "Costa Rica Breakfast",
+                      "description": "Bright and Fruit forward. Full of notes of chocolate, stone fruits such as apricot, honey, orange citrus, molasses, and more.",
+                      "roast": 3,
+                      "brightness": 8,
+                      "body": 4,
+                      "note": [
+                        "apricot",
+                        "honey",
+                        "chocolate"
+                      ],
+                      "process": "washed"
+                    }
+  /coffee/1001:
+    get:
+      description: Get coffee 1001.
+      operationId: getCoffee1001
+      parameters: []
+      responses:
+        "200":
+          description: Coffee Roast Costa Rica
+          content:
+            application/json:
+              schema:
+                required:
+                - body
+                - brightness
+                - description
+                - id
+                - name
+                - note
+                - process
+                - roast
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int32
+                    example: 1001
+                  name:
+                    type: string
+                    example: Costa Rica Breakfast
+                  description:
+                    type: string
+                    example: "Bright and Fruit forward. Full of notes of chocolate,\
+                      \ stone fruits such as apricot, honey, orange citrus, molasses,\
+                      \ and more."
+                  roast:
+                    type: integer
+                    format: int32
+                    example: 3
+                  brightness:
+                    type: integer
+                    format: int32
+                    example: 8
+                  body:
+                    type: integer
+                    format: int32
+                    example: 4
+                  note:
+                    type: array
+                    example:
+                    - apricot
+                    - honey
+                    - chocolate
+                    items:
+                      type: string
+                      example: apricot
+                  process:
+                    type: string
+                    example: washed
+                x-wiremock-hash: 30402806
+              examples:
+                Coffee Roast:
+                  value: |-
+                    {
+                      "id": 1001,
+                      "name": "Costa Rica Breakfast",
+                      "description": "Bright and Fruit forward. Full of notes of chocolate, stone fruits such as apricot, honey, orange citrus, molasses, and more.",
+                      "roast": 3,
+                      "brightness": 8,
+                      "body": 4,
+                      "note": [
+                        "apricot",
+                        "honey",
+                        "chocolate"
+                      ],
+                      "process": "washed"
+                    }
+  /coffee/{id}:
+    get:
+      description: Get coffee by id.
+      operationId: getCoffeeById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+      responses:
+        "200":
+          description: French Roast Coffee Roast
+          content:
+            application/json:
+              schema:
+                required:
+                - body
+                - brightness
+                - description
+                - id
+                - name
+                - note
+                - process
+                - roast
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int32
+                    example: 1
+                  name:
+                    type: string
+                    example: French Roast
+                  description:
+                    type: string
+                    example: A full body dark and smoky roast and a signature blend.
+                  roast:
+                    type: integer
+                    format: int32
+                    example: 10
+                  brightness:
+                    type: integer
+                    format: int32
+                    example: 3
+                  body:
+                    type: integer
+                    format: int32
+                    example: 5
+                  note:
+                    type: array
+                    example:
+                    - apricot
+                    - honey
+                    - chocolate
+                    items:
+                      type: string
+                      example: smoke
+                  process:
+                    type: string
+                    example: washed
+                x-wiremock-hash: 751868298
+              examples:
+                Coffee Roast:
+                  value: |-
+                    {
+                      "id": 1,
+                      "name": "French Roast",
+                      "description": "A full body dark and smoky roast and a signature blend.",
+                      "roast": 10,
+                      "brightness": 3,
+                      "body": 5,
+                      "note": [
+                        "smoke",
+                        "burnt sugar",
+                        "chocolate"
+                      ],
+                      "process": "washed"
+                    }
